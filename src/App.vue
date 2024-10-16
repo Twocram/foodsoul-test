@@ -1,6 +1,11 @@
 <template>
-  <RouterView />
+  <div class="layout">
+    <RouterView />
+  </div>
 </template>
+
+<script setup lang="ts">
+</script>
 
 <style>
 @font-face {
@@ -11,9 +16,13 @@
   src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2)
     format("woff2");
 }
-.inter {
-  font-family: "Inter";
+
+.layout {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

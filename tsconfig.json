@@ -1,21 +1,14 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "useDefineForClassFields": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "jsx": "preserve",
-      "resolveJsonModule": true,
-      "types": ["vite/client"],
-      "esModuleInterop": true,
-      "lib": [
-        "esnext",
-        "dom"
-      ]
-    },
-    "include": [
-      "src",
-      "server.js"
-    ]
-  }
-  
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["src", "server.js"]
+}
