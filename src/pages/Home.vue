@@ -2,6 +2,7 @@
     <div class="home-container">
       <div class="home-wrapper">
         <VInput  v-model="queryValue" type="text" placeholder="Input your city" name="location-input" />
+        <VLocationList :locations="locationStore.locationList" />
       </div>
     </div>
 </template>
@@ -9,15 +10,16 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 import VInput from "../components/VInput.vue";
-import { getLocation } from "../services/locationService";
+import VLocationList from "../components/VLocationList.vue";
+import { getLocations } from "../services/locationService";
 import { useLocationStore } from "../store/location";
 
 const locationStore = useLocationStore();
 
 const queryValue = ref<string>("");
 
-async function locationHandler() {
-  const { data, error } = await getLocation(queryValue.value)
+async function fetchLocations() {
+  const { data, error } = await getLocations(queryValue.value)
 
   if (error) {
     console.log('Error while fetching locations: ', error)
@@ -27,8 +29,8 @@ async function locationHandler() {
   locationStore.setLocationList(data)
 }
 
-watchEffect(() => {
-  locationHandler()
+watchEffect(async () => {
+  await fetchLocations()
 })
 </script>
 
