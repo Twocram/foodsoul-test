@@ -25,7 +25,7 @@ defineProps<Props>()
 const modelValue = defineModel()
 
 const inputHandler = (event: InputEvent) => {
-  modelValue.value = event.target.value;
+  modelValue.value = (event.target as HTMLInputElement).value;
 }
 
 </script>

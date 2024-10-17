@@ -7,14 +7,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watchEffect } from "vue";
 import VInput from "../components/VInput.vue";
-import {ref, watchEffect} from "vue";
-import type { NominatimLocation } from "../types/nominatim";
-import {getLocation} from "../services/locationService";
+import { getLocation } from "../services/locationService";
+import { useLocationStore } from "../store/location";
+
+const locationStore = useLocationStore();
 
 const queryValue = ref<string>("");
-
-const locations = ref<NominatimLocation[]>([])
 
 async function locationHandler() {
   const { data, error } = await getLocation(queryValue.value)
@@ -24,9 +24,7 @@ async function locationHandler() {
     return;
   }
 
-  if (data.length > 0) {
-    locations.value = data;
-  }
+  locationStore.setLocationList(data)
 }
 
 watchEffect(() => {
