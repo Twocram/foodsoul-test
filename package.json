@@ -9,7 +9,7 @@
     "build:client": "vite build",
     "build:server": "vite build --ssr ./src/entry-server.ts",
     "build": "npm run build:client && npm run build:server",
-    "lint": "eslint ./src",
+    "lint": "eslint --fix ./src",
     "format": "prettier --write ./src/**/*.{ts,vue}"
   },
   "keywords": [],
