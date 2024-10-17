@@ -1,10 +1,15 @@
 <template>
   <div class="location-list">
-    <VLocationListItem
-      v-for="location in locations"
-      :key="location.place_id"
-      :location="location"
-    />
+    <div class="location-list__title">
+      Locations: {{ !locations.length ? 'No locations' : '' }}
+    </div>
+    <template v-if="locations.length > 0">
+      <VLocationListItem
+        v-for="location in locations"
+        :key="location.place_id"
+        :location="location"
+      />
+    </template>
   </div>
 </template>
 

@@ -7,7 +7,13 @@
         placeholder="Input your city"
         name="location-input"
       />
-      <VLocationList :locations="locationStore.locationList" />
+      <template v-if="!isLoading">
+        <VLocationList :locations="locationStore.locationList" />
+      </template>
+
+      <template v-else>
+        <div class="home-loading">Loading...</div>
+      </template>
     </div>
   </div>
 </template>
@@ -24,15 +30,20 @@ const locationStore = useLocationStore();
 
 const queryValue = ref<string>('');
 
+const isLoading = ref<boolean>(false);
+
 async function fetchLocations() {
+  isLoading.value = true;
   const { data, error } = await getLocations(queryValue.value);
 
   if (error) {
+    isLoading.value = false;
     console.log('Error while fetching locations: ', error);
     return;
   }
 
   locationStore.setLocationList(data);
+  isLoading.value = false;
 }
 
 const debouncedFetchLocations = debounce(fetchLocations, 300);
@@ -54,6 +65,10 @@ watch(queryValue, () => {
     max-width: 324px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  &-loading {
+    margin-top: 14px;
   }
 }
 </style>
