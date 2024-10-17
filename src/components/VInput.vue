@@ -17,17 +17,16 @@ type Props = {
   placeholder: string;
   name: string;
   error?: string;
-  disabled?: boolean
-}
+  disabled?: boolean;
+};
 
-defineProps<Props>()
+defineProps<Props>();
 
-const modelValue = defineModel()
+const modelValue = defineModel();
 
 const inputHandler = (event: InputEvent) => {
   modelValue.value = (event.target as HTMLInputElement).value;
-}
-
+};
 </script>
 
 <style scoped lang="scss">
@@ -37,7 +36,10 @@ const inputHandler = (event: InputEvent) => {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s,
+    box-shadow 0.3s;
   outline: none;
 
   &:focus {
@@ -68,4 +70,3 @@ const inputHandler = (event: InputEvent) => {
   }
 }
 </style>
-
