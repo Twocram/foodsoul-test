@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { NominatimLocation } from '../types/nominatim';
+import type { NominatimLocation } from '../../types/nominatim';
 
 type Props = {
   location: NominatimLocation;

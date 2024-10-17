@@ -20,8 +20,8 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import VInput from '../components/VInput.vue';
-import VLocationList from '../components/VLocationList.vue';
+import VInput from '../components/VInput/VInput.vue';
+import VLocationList from '../components/VLocationList/VLocationList.vue';
 import { getLocations } from '../services/locationService';
 import { useLocationStore } from '../store/location';
 import { debounce } from '../utils/debounce';

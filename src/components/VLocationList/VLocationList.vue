@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { NominatimLocation } from '../types/nominatim';
-import VLocationListItem from './VLocationListItem.vue';
+import type { NominatimLocation } from '../../types/nominatim';
+import VLocationListItem from '../VLocationListItem/VLocationListItem.vue';
 
 type Props = {
   locations: NominatimLocation[];
