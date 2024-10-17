@@ -34,6 +34,60 @@ yarn dev
 bun run dev
 ```
 
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm run build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+## Lint
+
+Lint project:
+
+```bash
+# npm
+npm run lint
+
+# pnpm
+pnpm run lint
+
+# yarn
+yarn lint
+
+# bun
+bun run lint
+```
+
+## Prettier
+
+Format code into project:
+
+```bash
+# npm
+npm run format
+
+# pnpm
+pnpm run format
+
+# yarn
+yarn format
+
+# bun
+bun run format
+```
+
 ## Project architecture
 1. Frontend (Vue 3):
     - Components: Vue components for UI, forms, inputs, etc. (`/components`)
