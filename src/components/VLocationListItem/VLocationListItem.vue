@@ -28,7 +28,7 @@ type Props = {
 defineProps<Props>();
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .location-list-item {
   border: 1px solid #ccc;
   border-radius: 4px;

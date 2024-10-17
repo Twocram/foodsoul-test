@@ -7,7 +7,7 @@
 <script setup lang="ts">
 </script>
 
-<style>
+<style lang="scss">
 .layout {
   max-width: 1200px;
   width: 100%;
