@@ -1,6 +1,7 @@
 import { createPinia } from 'pinia';
 import { createSSRApp } from 'vue';
 import App from './App.vue';
+import "./assets/base.scss";
 import { createRouter } from './router';
 
 export function createApp() {
