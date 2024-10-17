@@ -8,11 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from "vue";
+import { ref, watch } from "vue";
 import VInput from "../components/VInput.vue";
 import VLocationList from "../components/VLocationList.vue";
 import { getLocations } from "../services/locationService";
 import { useLocationStore } from "../store/location";
+import { debounce } from "../utils/debounce";
 
 const locationStore = useLocationStore();
 
@@ -29,9 +30,11 @@ async function fetchLocations() {
   locationStore.setLocationList(data)
 }
 
-watchEffect(async () => {
-  await fetchLocations()
-})
+const debouncedFetchLocations = debounce(fetchLocations, 300);
+
+watch(queryValue, () => {
+  debouncedFetchLocations();
+});
 </script>
 
 <style scoped lang="scss">
