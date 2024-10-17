@@ -5,7 +5,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "tsx ./server.ts"
+    "dev": "tsx ./server.ts",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr ./src/entry-server.ts",
+    "build": "npm run build:client && npm run build:server"
   },
   "keywords": [],
   "author": "",
